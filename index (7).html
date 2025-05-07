@@ -1,0 +1,222 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visage</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #f4f4f4;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f3e3a9;
+      padding: 15px 30px;
+    }
+
+    .logo {
+      color: #926d18;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li {
+      position: relative;
+    }
+
+    .nav-links li a {
+      color: #926d18;
+      text-decoration: none;
+      font-size: 24px;
+      padding: 10px 20px;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links li a:hover {
+      color: #555;
+    }
+
+    /* Underline on hover */
+    .nav-links li::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #333;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links li:hover::after {
+      opacity: 1;
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .search-bar {
+      position: relative;
+    }
+
+    .search-bar input {
+      padding: 8px 12px 8px 35px;
+      font-size: 16px;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .search-bar input:focus {
+      border-color: #e3df9e;
+    }
+
+    .search-bar .fa-search {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: #926d18;
+    }
+
+    .canva-embed {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      box-shadow: 0 2px 8px rgba(63, 69, 81, 0.16);
+      overflow: hidden;
+    }
+
+    .canva-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .community-posts {
+      padding: 30px;
+      background-color: #f9f9f9; 
+      margin-top: 50px;
+    }
+
+    .community-posts h2 {
+      font-size: 28px;
+      color: #926d18;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .post {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .post-header h3 {
+      font-size: 20px;
+      color: #926d18;
+    }
+
+    .date {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .post p {
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <nav class="navbar">
+    <div class="logo">Visage</div>
+    <ul class="nav-links">
+      <li><a href="signup.html" class="active">Sign in</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="VTO.html">Virtual Try-On</a></li>
+    </ul>
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search" aria-label="Search">
+    </div>
+  </nav>
+
+  <div class="canva-embed">
+    <iframe loading="lazy"
+      src="https://www.canva.com/design/DAGkNWFTXJA/XPp9J3rmZcXfahdnB8dnyA/view?embed"
+      allowfullscreen allow="fullscreen">
+    </iframe>
+  </div>
+
+  <section class="community-posts">
+    <h2>Community Posts</h2>
+
+    <div class="post">
+      <div class="post-header">
+        <h3>Visagefanatic</h3>
+        <span class="date">April 25, 2025</span>
+      </div>
+      <p>GIRL, THIS VISAGE WEBSITE IS A 10/10! IT MADE ME MORE CONFIDENT BECAUSE OF THE ACCURATE SUGGESTIONS TO MAKE ME LOOK PRESENTABLE AND IT EVEN SUGGESTS A LOT OF AMAZING HAIRSTYLES SUITABLE FOR ME!</p>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <h3>Hairstylegirlie</h3>
+        <span class="date">April 24, 2025</span>
+      </div>
+      <p>I love my new hairstyle! thanks visage</p>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <h3>DesignLover</h3>
+        <span class="date">April 23, 2025</span>
+      </div>
+      <p>The layout is very clean. It's easy to navigate. Looking forward to more updates!</p>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VISAGE | Try On Your Crown</title>
+  <link rel="stylesheet" href="VTOstyle.css">
+</head>
+<body>
+
+  <header class="headerr">
+    <nav class="navbar">
+      <a href="index (7).html">Home</a>
+      <a href="about.html">About</a>
+      <a href="VTO.html">Virtual Try-On</a>
+      <a href="signup.html">Sign in</a>
+    </nav>
+    </header>
+
+  <div class="header">
+    <h1>VISAGE</h1>
+    <p>Take a pic, send it here, and see which hair suits you more!<br>
+    (Make sure your hair is out of the way so your face is visible!)</p>
+    <h5>Note: to remove a hair feature, minimize the selected hair, and drag it anywhere here.</h5>
+  </div>
+
+  
+
+  <input type="file" id="imageUpload" accept="image/*">
+
+  <div class="container">
+    <div class="sidebar">
+     <img src="brownhair1.png" class="hair-style" onclick="addHair(this)">
+     <img src="brownhair2.png" class="hair-style" onclick="addHair(this)">         
+     <img src="hair1.png" class="hair-style" draggable="true" onclick="addHair(this)">         
+     <img src="hair2.png" class="hair-style" draggable="true" onclick="addHair(this)">
+    </div>
+
+    <div class="main" id="mainArea">
+      <img id="preview" src="#" alt="Uploaded image here">
+    </div>
+
+    <div class="sidebar">
+      <img src="redhair1.png" class="hair-style" onclick="addHair(this)">
+      <img src="blackhair1.png" class="hair-style" onclick="addHair(this)">
+      <img src="blackhair2.png" class="hair-style" onclick="addHair(this)">
+      <img src="brownhair5.png" class="hair-style" draggable="true" onclick="addHair(this)">
+      <img src="blondehair1.png" class="hair-style" draggable="true" onclick="addHair(this)">
+    </div>
+  </div>
+
+  <script>
+    const imageInput = document.getElementById('imageUpload');
+    const preview = document.getElementById('preview');
+    const mainArea = document.getElementById('mainArea');
+
+    imageInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function addHair(sourceImg) {
+      const newImg = document.createElement('img');
+      newImg.src = sourceImg.src;
+      newImg.className = 'draggable';
+      newImg.style.left = '100px';
+      newImg.style.top = '100px';
+      newImg.style.width = '120px';
+
+      makeDraggableAndScalable(newImg);
+      mainArea.appendChild(newImg);
+    }
+
+    function makeDraggableAndScalable(el) {
+      let isDragging = false;
+      let offsetX, offsetY;
+      let scale = 1;
+
+      el.addEventListener('mousedown', function (e) {
+        isDragging = true;
+        offsetX = e.offsetX;
+        offsetY = e.offsetY;
+        el.style.zIndex = 999;
+      });
+
+      document.addEventListener('mousemove', function (e) {
+        if (isDragging) {
+          el.style.left = (e.pageX - mainArea.offsetLeft - offsetX) + 'px';
+          el.style.top = (e.pageY - mainArea.offsetTop - offsetY) + 'px';
+        }
+      });
+
+      document.addEventListener('mouseup', function () {
+        isDragging = false;
+      });
+
+      el.addEventListener('wheel', function (e) {
+        e.preventDefault();
+        scale += e.deltaY < 0 ? 0.1 : -0.1;
+        scale = Math.max(0.2, scale);
+        el.style.transform = `scale(${scale})`;
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VISAGE Hairstyle Finder</title>
+  <link rel="stylesheet" href="crownstyle.css"/>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <header class="header">
+  <nav class="navbar">
+    <a href="index (7).html">Home</a>
+    <a href="about.html">About</a>
+   <a href="signup.html"> Sign in</a>
+    </nav>
+    </header>
+      
+  <div class="container">
+    <h1>Find Your Perfect Hairstyle</h1>
+
+    <div class="filters">
+      <div class="section">
+        <h2>Select Hair Length</h2>
+        <label><input type="checkbox" name="length" value="short" /> Short</label>
+        <label><input type="checkbox" name="length" value="medium" /> Medium</label>
+        <label><input type="checkbox" name="length" value="long" /> Long</label>
+      </div>
+
+      <div class="section">
+        <h2>Select Face Shape</h2>
+        <div class="icon-group">
+          <label>
+            <input type="checkbox" name="shape" value="circle" />
+            <i class='bx bx-circle'></i>
+            <span>Circle</span>
+          </label>
+          <label>
+            <input type="checkbox" name="shape" value="heart" />
+            <i class='bx bx-heart'></i>
+            <span>Heart</span>
+          </label>
+          <label>
+            <input type="checkbox" name="shape" value="diamond" />
+            <i class='bx bx-diamond'></i>
+            <span>Diamond</span>
+          </label>
+          <label>
+            <input type="checkbox" name="shape" value="square" />
+            <i class='bx bx-square-rounded'></i>
+            <span>Square</span>
+          </label>
+          <label>
+            <input type="checkbox" name="shape" value="oval" />
+            <i class='bx bx-mouse'></i>
+            <span>Oval</span>
+          </label>
+        </div>
+      </div>      
+      <button id="findStyles">Show Suggestions</button>
+    </div>
+
+    <div id="suggestions" class="suggestions"></div>
+  </div>
+
+  <script src="crown.js"></script>
+</body>
+</html>
